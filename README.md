@@ -8,6 +8,7 @@
 * * Simplelink SDK ( C/C++ )
 * * **Debug** ( in progress... )
 * * J-LINK ( v8 )
+* [youtube demo](https://www.youtube.com/watch?v=GS83TT35M40)
 
 ![pico](https://raw.githubusercontent.com/Wiz-IO/LIB/master/images/Arduino-CC2652.jpg)
 
