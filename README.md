@@ -1,4 +1,4 @@
-# Texas Instruments CC26x2
+# Texas Instruments CC26x2<br>
 # development platform for PlatformIO
 
 **A few words in the beginning**
