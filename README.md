@@ -1,4 +1,5 @@
-# Texas Instruments CC26x2 development platform for PlatformIO
+# Texas Instruments CC26x2
+# development platform for PlatformIO
 
 **A few words in the beginning**
 * **Version: 1.0.0** The project is a work in progress, there may be bugs...
