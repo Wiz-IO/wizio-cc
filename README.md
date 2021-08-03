@@ -9,7 +9,7 @@
 * * **Debug** ( in progress... )
 * * J-LINK ( v8 )
 
-## Install Platform
+## Install Platform ( NOT READY DO NOT INSTALL )
 _Note: be sure [**git**](https://git-scm.com/downloads) is installed_
 * PIO Home > Platforms > Advanced Installation 
 * paste https://github.com/Wiz-IO/wizio-cc
