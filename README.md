@@ -1,6 +1,7 @@
 # Texas Instruments CC26x2<br> development platform for PlatformIO
 
 **A few words in the beginning**
+* **DO NOT INSTALL !!!** is not ready yet...
 * **Version: 1.0.0** The project is a work in progress, there may be bugs...
 * This project is based on Simplelink CC13x2_26x2 SDK 5.10.00.48 - **only driverlib**
 * * **Frameworks**
