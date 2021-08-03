@@ -5,7 +5,7 @@
 * This project is based on Simplelink CC13x2_26x2 SDK 5.10.00.48 - **only driverlib**
 * * **Frameworks**
 * * Arduino ( in progress... )
-* * Simplelink SDK
+* * Simplelink SDK ( C/C++ )
 * * **Debug** ( in progress... )
 * * J-LINK ( v8 )
 
