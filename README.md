@@ -24,6 +24,8 @@ _Note: be sure [**git**](https://git-scm.com/downloads) is installed_
   * delete folder **framework-wizio-cc** ( sources )
   * delete folder **toolchain-gccarmnoneeabi** (compiler, **may not be deleted** )
 
+![pico](https://raw.githubusercontent.com/Wiz-IO/LIB/master/images/PIO-CC.jpg)
+
 ## Thanks to:
 * [Comet Electronics](https://www.comet.bg/en/)
 
