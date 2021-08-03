@@ -11,7 +11,7 @@
 
 ![pico](https://raw.githubusercontent.com/Wiz-IO/LIB/master/images/Arduino-CC2652.jpg)
 
-## Install Platform ( NOT READY DO NOT INSTALL )
+## Install Platform ( NOT READY, DO NOT INSTALL ! )
 _Note: be sure [**git**](https://git-scm.com/downloads) is installed_
 * PIO Home > Platforms > Advanced Installation 
 * paste https://github.com/Wiz-IO/wizio-cc
