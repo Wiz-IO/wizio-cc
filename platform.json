@@ -1,0 +1,46 @@
+{
+  "name": "wizio-cc",
+  "title": "WizIO - TI CC2652",
+  "description": "Development platform for TI CC2652 2021 Georgi Angelov",
+  "homepage": "http://www.wizio.eu/",
+  "license": "Apache-2.0",
+  "engines": {
+    "platformio": "^5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wiz-IO/wizio-cc"
+  },
+  "version": "1.0.0",
+  "packageRepositories": [
+    "http://dl.platformio.org/packages/manifest.json"
+  ],
+  "frameworks": {
+      "sdk": {
+        "package": "framework-wizio-cc",
+        "script": "builder/frameworks/sdk.py"
+      },
+      "arduino": {
+        "package": "framework-wizio-cc",
+        "script": "builder/frameworks/arduino.py"
+      }
+
+  },
+  "packages": {
+    "framework-wizio-cc": {
+        "type": "framework",
+        "version": "1.0.0"
+    },
+    "toolchain-gccarmnoneeabi": {
+        "type": "toolchain",
+        "version": "=1.70201.0"
+    },
+    "tool-openocd": {
+      "type": "uploader",
+      "optional": true,
+      "owner": "platformio",
+      "version": "~2.1000.0"
+    }  
+
+  }
+}

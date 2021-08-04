@@ -1,0 +1,25 @@
+{
+  "name": "WizIO-CC2652",
+  "url": "https://github.com",
+  "build": {
+    "core": "CC2652",
+    "variant": "CC2652",    
+    "uploader": "backdoor",
+    "f_cpu": "48000000L",
+    "mcu": "CC2652"
+  },  
+  "frameworks": ["sdk", "arduino"],
+  "vendor": "WizIO",
+
+  "debug": {
+    "openocd_target": "ti_cc26x2",
+    "svd_path": "CC2652.svd",
+    "protocol": "jlink"
+  }, 
+
+  "upload": {
+        "maximum_ram_size":  81920,
+        "maximum_size"    : 360360,
+        "tool" : "todo"
+  }
+}
