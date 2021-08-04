@@ -29,7 +29,7 @@
   "packages": {
     "framework-wizio-cc": {
         "type": "framework",
-        "version": "1.0.0"
+        "version": "https://github.com/Wiz-IO/framework-wizio-cc"
     },
     "toolchain-gccarmnoneeabi": {
         "type": "toolchain",
