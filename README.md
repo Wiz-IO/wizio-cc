@@ -1,12 +1,12 @@
 # Texas Instruments CC26x2<br> development platform for PlatformIO
 
 **A few words in the beginning**
-* **Version: 1.0.0** The project is a work in progress, there may be bugs...
+* **Version: 1.0.0 ( The project is a work in progress, there may be bugs )**
 * This project is based on Simplelink CC13x2_26x2 SDK 5.10.00.48 - **only driverlib**
-* * **[Frameworks](https://github.com/Wiz-IO/framework-wizio-cc)**
+* **[Frameworks](https://github.com/Wiz-IO/framework-wizio-cc)**
 * * Arduino ( in progress... )
 * * Simplelink SDK ( C/C++ )
-* * **Upload/Debug** ( in progress... )
+* **Upload/Debug** ( in progress... )
 * * J-LINK ( v8 )
 * [EXAMPLES](https://github.com/Wiz-IO/examples-wizio-cc)
 * [READ WIKI](https://github.com/Wiz-IO/wizio-cc/wiki)
