@@ -5,7 +5,7 @@
 * This project is based on Simplelink CC13x2_26x2 SDK 5.10.00.48 - **only driverlib**
 * **[Frameworks](https://github.com/Wiz-IO/framework-wizio-cc)**
 * * Arduino ( in progress... )
-* * Simplelink SDK ( C/C++ )
+* * Simplelink SDK ( driverlib )
 * **Upload & Debug** ( in progress... NOT READY, use SEGGER J-FLASH for now )
 * * J-LINK ( v8 )
 * [EXAMPLES](https://github.com/Wiz-IO/examples-wizio-cc)
