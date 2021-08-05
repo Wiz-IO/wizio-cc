@@ -6,7 +6,7 @@
 * **[Frameworks](https://github.com/Wiz-IO/framework-wizio-cc)**
 * * Arduino ( in progress... )
 * * Simplelink SDK ( C/C++ )
-* **Upload/Debug** ( in progress... )
+* **Upload & Debug** ( in progress... NOT READY, use SEGGER J-FLASH for now )
 * * J-LINK ( v8 )
 * [EXAMPLES](https://github.com/Wiz-IO/examples-wizio-cc)
 * [READ WIKI](https://github.com/Wiz-IO/wizio-cc/wiki)
