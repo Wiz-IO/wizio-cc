@@ -1,7 +1,6 @@
 # Texas Instruments CC26x2<br> development platform for PlatformIO
 
 **A few words in the beginning**
-* **DO NOT INSTALL !!!** is not ready yet...
 * **Version: 1.0.0** The project is a work in progress, there may be bugs...
 * This project is based on Simplelink CC13x2_26x2 SDK 5.10.00.48 - **only driverlib**
 * * **[Frameworks](https://github.com/Wiz-IO/framework-wizio-cc)**
@@ -9,11 +8,13 @@
 * * Simplelink SDK ( C/C++ )
 * * **Upload/Debug** ( in progress... )
 * * J-LINK ( v8 )
+* [EXAMPLES](https://github.com/Wiz-IO/examples-wizio-cc)
+* [READ WIKI](https://github.com/Wiz-IO/wizio-cc/wiki)
 * [Youtube Demo](https://www.youtube.com/watch?v=GS83TT35M40)
 
 ![pico](https://raw.githubusercontent.com/Wiz-IO/LIB/master/images/Arduino-CC2652.jpg)
 
-## Install Platform ( NOT READY, DO NOT INSTALL ! )
+## Install Platform
 _Note: be sure [**git**](https://git-scm.com/downloads) is installed_
 * PIO Home > Platforms > Advanced Installation 
 * paste https://github.com/Wiz-IO/wizio-cc
