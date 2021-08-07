@@ -36,7 +36,7 @@ def dev_create_template(env):
         if False == os.path.isfile( join(dst, "startup_gcc.c") ):
             do_copy(src, dst, "startup_gcc.c" )                   
 
-def dev_nano(env):
+def dev_nano(env): # do not use
     enable_nano = env.BoardConfig().get("build.nano", "disable") 
     nano = []
     if enable_nano == "enable":
@@ -147,4 +147,9 @@ def dev_compiler(env, application_name = 'APPLICATION'):
     )
 
     env.BuildSources( join("$BUILD_DIR", env.platform, 'ti', 'cc13x2_cc26x2', 'driverlib'), join(env.ti, 'cc13x2_cc26x2', 'driverlib') )
+
+    ###[ini] board_build.use_patch = enable
+    use_patch = env.BoardConfig().get("build.use_patch", "disable") 
+    if use_patch == "enable":
+        env.BuildSources( join("$BUILD_DIR", env.platform, 'ti', 'cc13x2_cc26x2', 'rf_patches'), join(env.ti, 'cc13x2_cc26x2', 'rf_patches') ) 
     
