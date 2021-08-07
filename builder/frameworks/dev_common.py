@@ -99,6 +99,7 @@ def dev_compiler(env, application_name = 'APPLICATION'):
             "-Wno-unused-but-set-variable",
             "-Wno-unused-variable",
             "-Wno-unused-value",
+            "-Wno-unused-label",
             "-Wno-strict-aliasing",
             "-Wno-maybe-uninitialized",
             "-Wno-implicit-fallthrough"
