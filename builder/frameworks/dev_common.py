@@ -8,8 +8,10 @@ from shutil import copyfile
 from colorama import Fore
 from SCons.Script import DefaultEnvironment, Builder, ARGUMENTS
 
+from pylink_uploader import upload
 def dev_uploader(target, source, env):
     print("UPLOADER IS NOT READY YET !!!")
+    upload(target, source, env)
 
 def do_copy(src, dst, name):
     if False == os.path.isfile( join(dst, name) ):
@@ -102,7 +104,8 @@ def dev_compiler(env, application_name = 'APPLICATION'):
             "-Wno-unused-label",
             "-Wno-strict-aliasing",
             "-Wno-maybe-uninitialized",
-            "-Wno-implicit-fallthrough"
+            "-Wno-implicit-fallthrough",
+            #"-Wno-missing-field-initializers"
         ],      
         CFLAGS = [
             cortex,
