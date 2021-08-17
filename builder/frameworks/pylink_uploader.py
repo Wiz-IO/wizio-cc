@@ -13,6 +13,10 @@ def upload(target, source, env):
    sys.stdout.write('\tCPU Id: 0x%x\n' % jlink.core_cpu())
    sys.stdout.write('\tCore Name: %s\n' % jlink.core_name())
    sys.stdout.write('\tDevice Family: %d\n' % jlink.device_family())   
-   jlink.erase()
+
+   b = jlink.erase()
+   #sys.stdout.write('\tErased: %d bytes\n' % b)  
+   #sys.stdout.write('\tFilename: %s\n' % hex) 
+   
    jlink.flash_file(hex, 0x0)
    jlink.reset()

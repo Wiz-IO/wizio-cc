@@ -10,7 +10,7 @@ from SCons.Script import DefaultEnvironment, Builder, ARGUMENTS
 
 from pylink_uploader import upload
 def dev_uploader(target, source, env):
-    print("UPLOADER IS NOT READY YET !!!")
+    #print("UPLOADER IS NOT READY YET !!!")
     upload(target, source, env)
 
 def do_copy(src, dst, name):
