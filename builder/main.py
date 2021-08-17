@@ -17,9 +17,9 @@ prg_bin = env.Alias( "build_bin", bin, [ env.VerboseAction("", "BIN DONE") ] )
 prg_hex = env.Alias( "build_hex", hex, [ env.VerboseAction("", "HEX DONE") ] )
 AlwaysBuild( prg_bin, prg_hex )
 
-upload = env.Alias("upload", prg_bin, [ 
-    env.VerboseAction("$UPLOADCMD", "Uploading BIN..."),
-    env.VerboseAction("", "  DONE"),
+upload = env.Alias("upload", prg_hex, [ 
+    env.VerboseAction("$UPLOADCMD", "Uploading HEX FILE"),
+    env.VerboseAction("", "DONE"),
 ])
 AlwaysBuild( upload )    
 
