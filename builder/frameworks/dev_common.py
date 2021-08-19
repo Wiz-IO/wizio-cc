@@ -105,7 +105,15 @@ def dev_compiler(env, application_name = 'APPLICATION'):
             "-Wno-strict-aliasing",
             "-Wno-maybe-uninitialized",
             "-Wno-implicit-fallthrough",
-            #"-Wno-missing-field-initializers"
+            #"-Wno-missing-field-initializers",
+
+            # for ZBOSS ... TODO: on/off
+            "-Wno-shift-negative-value",
+            "-Wno-array-bounds",
+            "-Wno-unused-local-typedefs",
+            "-Wno-int-to-pointer-cast",
+            "-Wno-parentheses",
+
         ],      
         CFLAGS = [
             cortex,
