@@ -56,10 +56,9 @@ class WizioccPlatform(PlatformBase):
             if link in non_debug_protocols or link in debug["tools"]: continue
             #print('LINK', link, 'TARGET', debug.get("openocd_target"))
             server_args = [
-                ### TODO
-                ###"-s", "$PACKAGE_DIR/scripts",
-                ###"-f", "interface/%s.cfg" % 'jlink', # link,
-                ###"-f", "target/%s" % 'ti_cc26x2.cfg' # debug.get("openocd_target")
+                "-s", "$PACKAGE_DIR/scripts",
+                "-f", "interface/%s.cfg" % 'jlink', # link,
+                "-f", "target/%s" % 'ti_cc26x2.cfg' # debug.get("openocd_target")
             ]
             print('SERVER ARG', server_args)
             
