@@ -8,10 +8,12 @@ from shutil import copyfile
 from colorama import Fore
 from SCons.Script import DefaultEnvironment, Builder, ARGUMENTS
 
-from pylink_uploader import upload
+### TODO FIX pylink
+###from pylink_uploader import upload
 def dev_uploader(target, source, env):
-    #print("UPLOADER IS NOT READY YET !!!")
-    upload(target, source, env)
+    print("UPLOADER IS NOT READY YET !!!")
+    print("Use SEGGER J-Flash ... upload HEX file")
+    ###upload(target, source, env)
 
 def do_copy(src, dst, name):
     if False == os.path.isfile( join(dst, name) ):
