@@ -8,12 +8,11 @@ from shutil import copyfile
 from colorama import Fore
 from SCons.Script import DefaultEnvironment, Builder, ARGUMENTS
 
-### TODO FIX pylink
-###from pylink_uploader import upload
+from pylink_uploader import upload
 def dev_uploader(target, source, env):
     print("UPLOADER IS NOT READY YET !!!")
     print("Use SEGGER J-Flash ... upload HEX file")
-    ###upload(target, source, env)
+    upload(target, source, env)
 
 def do_copy(src, dst, name):
     if False == os.path.isfile( join(dst, name) ):
@@ -93,6 +92,7 @@ def dev_compiler(env, application_name = 'APPLICATION'):
             optimization,
             "-fdata-sections",
             "-ffunction-sections",
+            '-fno-strict-aliasing',
             "-Wall",
             "-Wextra",
             "-Wfatal-errors",
@@ -108,14 +108,6 @@ def dev_compiler(env, application_name = 'APPLICATION'):
             "-Wno-maybe-uninitialized",
             "-Wno-implicit-fallthrough",
             #"-Wno-missing-field-initializers",
-
-            # for ZBOSS ... TODO: on/off
-            "-Wno-shift-negative-value",
-            "-Wno-array-bounds",
-            "-Wno-unused-local-typedefs",
-            "-Wno-int-to-pointer-cast",
-            "-Wno-parentheses",
-
         ],      
         CFLAGS = [
             cortex,
@@ -133,13 +125,14 @@ def dev_compiler(env, application_name = 'APPLICATION'):
             cortex,
             optimization,
             "-nostartfiles",
+            "-mno-unaligned-access",
             "-Xlinker", "--gc-sections",
             "-Wl,--gc-sections",
             "--entry=ResetISR",
             dev_nano(env)
         ],
         LIBPATH = [ join( '$PROJECT_DIR', 'lib' ) ], 
-        LIBS           = ['m', 'gcc'],
+        LIBS    = ['m', 'gcc'],
         BUILDERS = dict(
             ElfToBin = Builder(
                 action = env.VerboseAction(" ".join([
@@ -165,4 +158,7 @@ def dev_compiler(env, application_name = 'APPLICATION'):
     use_patch = env.BoardConfig().get("build.use_patch", "disable") 
     if use_patch == "enable":
         env.BuildSources( join("$BUILD_DIR", env.platform, 'ti', 'cc13x2_cc26x2', 'rf_patches'), join(env.ti, 'cc13x2_cc26x2', 'rf_patches') ) 
+
+    ###[ini] board_build.freertos = enable
+    env.freertos = "enable" == env.BoardConfig().get("build.freertos", "disable") 
     
