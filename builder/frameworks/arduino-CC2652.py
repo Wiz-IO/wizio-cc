@@ -13,12 +13,13 @@ def dev_init(env, platform):
     dev_compiler(env, 'ARDUINO')
     PLATFORM_DIR = join( env.framework_dir, platform )
     env.Append(
-        CPPDEFINES = [ "ARDUINO=200" ], # DRIVERLIB_NOROM
+        CPPDEFINES = [ 
+            "ARDUINO=200", 
+        ], # DRIVERLIB_NOROM
         CPPPATH = [ 
-            join(env.framework_dir, env.sdk, "wizio"), 
             join(PLATFORM_DIR, platform),
             join(PLATFORM_DIR, "cores", env.core),
-            join(PLATFORM_DIR, "variants", env.BoardConfig().get("build.variant")),            
+            join(PLATFORM_DIR, "variants", env.BoardConfig().get("build.variant")),  
         ],
         LIBSOURCE_DIRS = [ join(PLATFORM_DIR, "libraries", env.core) ],
         LIBPATH        = [ join(PLATFORM_DIR, "libraries", env.core) ],        
@@ -31,3 +32,14 @@ def dev_init(env, platform):
     env.BuildSources( join( OBJ_DIR, "core" ),    join( PLATFORM_DIR, "cores", env.core ) )
     env.BuildSources( join( OBJ_DIR, "variant" ), join( PLATFORM_DIR, "variants", env.BoardConfig().get("build.variant") )  )    
     env.BuildSources( join("$BUILD_DIR", env.platform, 'ti', 'cc13x2_cc26x2', 'startup_files'), join(env.ti, 'cc13x2_cc26x2', 'startup_files') )
+
+    if True == env.freertos:
+        env.BuildSources( join( OBJ_DIR, "freertos" ),            join( env.framework_dir, 'library', 'freertos', 'src') )
+        env.BuildSources( join( OBJ_DIR, "freertos", "arduino" ), join( env.framework_dir, 'library', 'freertos', 'arduino') ) # port        
+        env.Append(
+            CPPDEFINES = [ "USE_FREERTOS" ],
+            CPPPATH = [
+                join( env.framework_dir, 'library', 'freertos', 'include'),
+                join( env.framework_dir, 'library', 'freertos', 'arduino'), # FreeRTOSConfig.h
+            ]
+        )
