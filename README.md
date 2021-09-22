@@ -29,6 +29,8 @@ _Note: be sure [**git**](https://git-scm.com/downloads) is installed_
 
 ![pico](https://raw.githubusercontent.com/Wiz-IO/LIB/master/images/PIO-CC.jpg)
 
+![pico](https://raw.githubusercontent.com/Wiz-IO/LIB/master/images/zigbee-sensor.jpg)
+
 ## Thanks to:
 * [Comet Electronics](https://www.comet.bg/en/)
 
