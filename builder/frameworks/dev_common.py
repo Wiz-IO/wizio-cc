@@ -10,8 +10,8 @@ from SCons.Script import DefaultEnvironment, Builder, ARGUMENTS
 
 from pylink_uploader import upload
 def dev_uploader(target, source, env):
-    #print("UPLOADER IS NOT READY YET !!!")
-    #print("Use SEGGER J-Flash ... upload HEX file")
+    print("UPLOADER IS NOT READY YET !!!")
+    print("Use SEGGER J-Flash ... upload HEX file")
     upload(target, source, env)
 
 def do_copy(src, dst, name):
