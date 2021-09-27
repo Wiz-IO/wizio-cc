@@ -10,9 +10,9 @@ from SCons.Script import DefaultEnvironment, Builder, ARGUMENTS
 
 from pylink_uploader import upload
 def dev_uploader(target, source, env):
-    print("UPLOADER IS NOT READY YET !!!")
-    print("Use SEGGER J-Flash ... upload HEX file")
-    ### upload(target, source, env)
+    #print("UPLOADER IS NOT READY YET !!!")
+    #print("Use SEGGER J-Flash ... upload HEX file")
+    upload(target, source, env)
 
 def do_copy(src, dst, name):
     if False == os.path.isfile( join(dst, name) ):
@@ -50,6 +50,7 @@ def dev_nano(env): # do not use
 
 def dev_compiler(env, application_name = 'APPLICATION'):
     env.sdk = env.BoardConfig().get("build.sdk", "SDK") # get/set default SDK
+    env.SDK_PATH = join(env.framework_dir, env.sdk)    
     env.core = env.BoardConfig().get("build.core")
     env.mcu = env.BoardConfig().get("build.mcu")
     env.ti = join(env.framework_dir, env.sdk, "ti", "devices")
