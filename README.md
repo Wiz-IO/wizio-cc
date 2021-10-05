@@ -6,10 +6,10 @@
 * **[Frameworks](https://github.com/Wiz-IO/framework-wizio-cc)**
 * * Arduino ( in progress... )
 * * Simplelink SDK
-* * * baremetal ( driverlib only )
-* * * freertos ( drivers )
-* * * nortos ( TODO ... drivers )
-* * * tirtos ( TODO ... drivers )
+* * * baremetal ( **support only driverlib** )
+* * * freertos 
+* * * nortos ( TODO )
+* * * tirtos ( TODO )
 * **Upload & Debug** ( in progress... NOT READY, use SEGGER J-FLASH for now )
 * * J-LINK ( v8 )
 * [EXAMPLES](https://github.com/Wiz-IO/examples-wizio-cc)
