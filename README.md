@@ -17,6 +17,7 @@
 * * FreakZ - not have Security and ZCL (tested -  **not work** with zigbee2mqtt)
 * * ZBOSS 1.0 not have Security and ZCL (tested -  **not work** with zigbee2mqtt)
 * * ZBOSS 3.0 - DSR want money for a license ... (tested - work with zigbee2mqtt)
+* * NOTE: all tests @ Arduino
 * [EXAMPLES](https://github.com/Wiz-IO/examples-wizio-cc)
 * [READ WIKI](https://github.com/Wiz-IO/wizio-cc/wiki)
 * [Youtube Demo](https://www.youtube.com/watch?v=GS83TT35M40)
