@@ -35,9 +35,7 @@ def dev_create_template(env):
         if False == os.path.isfile( join(dst, "main.cpp") ):
             do_copy(src, dst, "main.c" )
         if False == os.path.isfile( join(dst, "ccfg.c") ):
-            do_copy(src, dst, "ccfg.c" )      
-        if False == os.path.isfile( join(dst, "startup_gcc.c") ):
-            do_copy(src, dst, "startup_gcc.c" )                   
+            do_copy(src, dst, "ccfg.c" )                 
 
 def dev_nano(env): # do not use
     enable_nano = env.BoardConfig().get("build.nano", "disable") 
@@ -50,12 +48,15 @@ def dev_nano(env): # do not use
 
 def dev_compiler(env, application_name = 'APPLICATION'):
     env.sdk = env.BoardConfig().get("build.sdk", "SDK") # get/set default SDK
-    env.SDK_PATH = join(env.framework_dir, env.sdk)    
+    env.SDK_PATH = join(env.framework_dir, env.sdk) 
+    env.TI = join(env.framework_dir, env.sdk, 'ti')    
+    env.DEVICE = join(env.framework_dir, env.sdk, 'ti', 'devices', 'cc13x2_cc26x2') 
+
     env.core = env.BoardConfig().get("build.core")
     env.mcu = env.BoardConfig().get("build.mcu")
-    env.ti = join(env.framework_dir, env.sdk, "ti", "devices")
+
     #print()
-    print( Fore.BLUE + "Texas Instruments %s / %s" % ( env.core.upper(), env.mcu.upper() ) )
+    print( Fore.BLUE + "Texas Instruments %s" % ( env.mcu.upper() ) )
     env.Replace(
         BUILD_DIR = env.subst("$BUILD_DIR").replace("\\", "/"),
         AR="arm-none-eabi-ar",
@@ -72,7 +73,7 @@ def dev_compiler(env, application_name = 'APPLICATION'):
         SIZECHECKCMD="$SIZETOOL -A -d $SOURCES",
         SIZEPRINTCMD='$SIZETOOL --mcu=$BOARD_MCU -C -d $SOURCES',
         PROGSUFFIX=".elf",
-        PROGNAME = application_name
+        PROGNAME=application_name
     )
     cortex = ["-mcpu=cortex-m4", "-march=armv7e-m", "-mfpu=fpv4-sp-d16", "-mfloat-abi=hard", "-mthumb"] 
     optimization = env.BoardConfig().get("build.optimization", "-Os")
@@ -80,13 +81,14 @@ def dev_compiler(env, application_name = 'APPLICATION'):
     env.Append(
         ASFLAGS=[ cortex, "-x", "assembler-with-cpp" ],
         CPPDEFINES = [
-            "DeviceFamily_CC13X2_CC26X2",
-            "%s=1" % env.mcu, 
+            'DeviceFamily_CC13X2_CC26X2',
+            "%s" % env.mcu, 
         ],        
         CPPPATH = [
-            join(env.framework_dir, env.sdk),
-            join(env.ti),
-            join(env.ti, 'cc13x2_cc26x2'),
+            join(env.subst('$PROJECT_DIR'), 'src'),
+            join(env.subst('$PROJECT_DIR'), 'include'),
+            env.SDK_PATH,
+            env.DEVICE
         ],
         CCFLAGS = [
             cortex,
@@ -109,6 +111,7 @@ def dev_compiler(env, application_name = 'APPLICATION'):
             "-Wno-maybe-uninitialized",
             "-Wno-implicit-fallthrough",
             #"-Wno-missing-field-initializers",
+            #'-Wno-comment',
         ],      
         CFLAGS = [
             cortex,
@@ -129,11 +132,13 @@ def dev_compiler(env, application_name = 'APPLICATION'):
             "-mno-unaligned-access",
             "-Xlinker", "--gc-sections",
             "-Wl,--gc-sections",
-            "--entry=ResetISR",
             dev_nano(env)
         ],
-        LIBPATH = [ join( '$PROJECT_DIR', 'lib' ) ], 
-        LIBS    = ['m', 'gcc'],
+        LIBPATH = [ 
+            join( env.TI, 'library'),       # LIB SDK
+            join( '$PROJECT_DIR', 'lib' ),  # LIB PROJECT
+        ], 
+        LIBS    = [ 'm', 'gcc', 'device_drivers.a' ],
         BUILDERS = dict(
             ElfToBin = Builder(
                 action = env.VerboseAction(" ".join([
@@ -153,13 +158,8 @@ def dev_compiler(env, application_name = 'APPLICATION'):
         UPLOADCMD = dev_uploader        
     )
 
-    env.BuildSources( join("$BUILD_DIR", env.platform, 'ti', 'cc13x2_cc26x2', 'driverlib'), join(env.ti, 'cc13x2_cc26x2', 'driverlib') )
-
-    ###[ini] board_build.use_patch = enable
+    ###[INI] board_build.use_patch = enable
     use_patch = env.BoardConfig().get("build.use_patch", "disable") 
     if use_patch == "enable":
         env.BuildSources( join("$BUILD_DIR", env.platform, 'ti', 'cc13x2_cc26x2', 'rf_patches'), join(env.ti, 'cc13x2_cc26x2', 'rf_patches') ) 
-
-    ###[ini] board_build.freertos = enable
-    env.freertos = "enable" == env.BoardConfig().get("build.freertos", "disable") 
     

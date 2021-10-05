@@ -6,7 +6,7 @@ from __future__ import print_function
 from SCons.Script import DefaultEnvironment
 
 env = DefaultEnvironment()
-platform = "sdk"
+platform = env.get("PIOFRAMEWORK", [])[0]
 module = platform + "-" + env.BoardConfig().get("build.core")
 m = __import__(module)
 globals()[module] = m

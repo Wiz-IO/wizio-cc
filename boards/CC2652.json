@@ -8,7 +8,7 @@
     "f_cpu": "48000000L",
     "mcu": "CC2652"
   },  
-  "frameworks": ["sdk", "arduino"],
+  "frameworks": ["baremetal", "nortos", "freertos", "tirtos", "arduino"],
   "vendor": "WizIO",
 
   "debug": {
