@@ -31,7 +31,7 @@ import math
 import operator
 import sys
 import time
-import six
+#import six
 
 
 logger = logging.getLogger(__name__)

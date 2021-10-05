@@ -11,15 +11,27 @@
     "type": "git",
     "url": "https://github.com/Wiz-IO/wizio-cc"
   },
-  "version": "1.0.0",
+  "version": "1.1.0",
   "packageRepositories": [
     "http://dl.platformio.org/packages/manifest.json"
   ],
   "frameworks": {
-      "sdk": {
+      "baremetal": {
         "package": "framework-wizio-cc",
         "script": "builder/frameworks/sdk.py"
       },
+      "nortos": {
+        "package": "framework-wizio-cc",
+        "script": "builder/frameworks/sdk.py"
+      },      
+      "freertos": {
+        "package": "framework-wizio-cc",
+        "script": "builder/frameworks/sdk.py"
+      },  
+      "tirtos": {
+        "package": "framework-wizio-cc",
+        "script": "builder/frameworks/sdk.py"
+      },             
       "arduino": {
         "package": "framework-wizio-cc",
         "script": "builder/frameworks/arduino.py"
