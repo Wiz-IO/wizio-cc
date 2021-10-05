@@ -7,9 +7,9 @@
 * * Arduino ( in progress... )
 * * Simplelink SDK
 * * * baremetal ( driverlib only )
-* * * freertos 
-* * * nortos ( todo )
-* * * tirtos ( todo )
+* * * freertos ( drivers )
+* * * nortos ( TODO ... drivers )
+* * * tirtos ( TODO ... drivers )
 * **Upload & Debug** ( in progress... NOT READY, use SEGGER J-FLASH for now )
 * * J-LINK ( v8 )
 * [EXAMPLES](https://github.com/Wiz-IO/examples-wizio-cc)
