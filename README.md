@@ -5,7 +5,7 @@
 * This project is based on Simplelink CC13x2_26x2 SDK 5.10.00.48 - **only driverlib**
 * **[Frameworks](https://github.com/Wiz-IO/framework-wizio-cc)**
 * * Arduino ( in progress... )
-* * Simplelink SDK
+* * Simplelink SDK ( RTOS support TI Drivers )
 * * * baremetal ( **support only driverlib** )
 * * * freertos 
 * * * nortos ( TODO )
