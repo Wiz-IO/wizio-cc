@@ -12,8 +12,7 @@ def dev_init(env, platform):
     env.libs = []
     dev_compiler(env)
     dev_create_template(env) 
-    print('  * OS           : NORTOS ... NOT READY !!! ... TODO')
-    exit()
+    print('  * OS           : NORTOS')
 
     os_path = join( env.framework_dir, 'library', 'nortos')
 
@@ -23,7 +22,7 @@ def dev_init(env, platform):
         linker = linker.replace('$PROJECT_DIR', env['PROJECT_DIR']).replace('\\', '/')
         env.Append( LDSCRIPT_PATH = linker )
     else:
-        env.Append( LDSCRIPT_PATH = join(os_path, 'cc13x2x7_cc26x2x7_nortos.lds') )
+        env.Append( LDSCRIPT_PATH = join(os_path, 'nortos.lds') )
 
     env.Append( 
         CPPDEFINES = [ "USE_NORTOS" ],        
