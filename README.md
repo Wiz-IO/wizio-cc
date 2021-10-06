@@ -8,7 +8,7 @@
 * * Simplelink SDK ( RTOS support TI Drivers )
 * * * baremetal ( **support only driverlib** )
 * * * freertos 
-* * * nortos ( TODO )
+* * * nortos
 * * * tirtos ( TODO )
 * **Upload & Debug** ( in progress... NOT READY, use SEGGER J-FLASH for now )
 * * J-LINK ( v8 )
