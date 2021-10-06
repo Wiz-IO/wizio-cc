@@ -15,19 +15,26 @@ def dev_init(env, platform):
     print('  * OS           : TIRTOS ... NOT READY !!! ... TODO')
     exit()
 
-    #[INI] board_build.linker = $PROJECT_DIR/custom.ld
-    linker = env.BoardConfig().get("build.linker", "cc26x2r1f.lds")
-    if "cc26x2r1f.lds" != linker and "$PROJECT_DIR" in linker:
-        linker = linker.replace('$PROJECT_DIR', env["PROJECT_DIR"]).replace("\\", "/")
-        env.Append( LDSCRIPT_PATH = linker )
-        pass
-    else:
-        env.Append( LDSCRIPT_PATH = join(env.DEVICE, 'linker_files', 'cc26x2r1f-cpp.ld') )
+    os_path = join( env.framework_dir, 'library', 'tirtos')
+    dev_set_linker( env, join(os_path, 'tirtos.lds') )
 
     env.Append( 
-        CPPPATH = [ join(env.SDK_PATH, 'ti', 'drivers'), ], 
-        LIBS    = [ 'libdrivers_cc26x2', ],              
+        CPPDEFINES = [ "USE_TIRTOS" ], 
+        CPPPATH    = [ 
+            os_path,
+            join(os_path, 'src'),
+            join(env.SDK_PATH, 'ti', 'drivers'), 
+        ], 
+        LIBS       = [ 
+            'drivers_cc26x2', 
+            'tirtos_cc26x2', 
+            'dpl_cc26x2'           
+        ],   
+        LINKFLAGS  = [ '--entry=ResetISR', ]             
     )    
 
     templates = join(env.PioPlatform().get_package_dir("framework-wizio-cc"), "templates")   
     project = join(env.subst("$PROJECT_DIR"), "src") 
+
+    env.BuildSources( join( "$BUILD_DIR", platform, "tirtos" ), join( os_path, 'src', 'startup') )
+    #env.BuildSources( join( "$BUILD_DIR", platform, "tirtos", 'knl' ), join( os_path, 'src', 'ti', 'sysbios' , 'knl', 'Task.c') )

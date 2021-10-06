@@ -46,6 +46,15 @@ def dev_nano(env): # do not use
     else:             print('  * SPECS        : default')
     return nano
 
+def dev_set_linker(env, file_name):
+    #[INI] board_build.linker = $PROJECT_DIR/custom.ld
+    linker = env.BoardConfig().get("build.linker", "default")
+    if "default" != linker and "$PROJECT_DIR" in linker:
+        linker = linker.replace('$PROJECT_DIR', env["PROJECT_DIR"]).replace("\\", "/")
+        env.Append( LDSCRIPT_PATH = linker )    
+    else:
+        env.Append( LDSCRIPT_PATH = file_name )
+
 def dev_compiler(env, application_name = 'APPLICATION'):
     env.sdk = env.BoardConfig().get("build.sdk", "SDK") # get/set default SDK
     env.SDK_PATH = join(env.framework_dir, env.sdk) 
