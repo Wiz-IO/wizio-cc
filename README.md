@@ -13,7 +13,7 @@
 * **Upload & Debug** ( in progress... NOT READY, use SEGGER J-FLASH for now )
 * * J-LINK ( v8 )
 * **ZigBee - NO OPEN SOURCE LIBRARIES**
-* * TI Z-Stack ... is "full mess" - the stack support only TI-RTOS, no example source codes ... can work as super-loop(Arduino), but ... ask TI
+* * TI Z-Stack - (TODO: @ FreeRTOS)
 * * FreakZ - not have Security and ZCL (tested -  **not work** with zigbee2mqtt)
 * * ZBOSS 1.0 not have Security and ZCL (tested -  **not work** with zigbee2mqtt)
 * * ZBOSS 3.0 - DSR want money for a license ... (tested - work with zigbee2mqtt ... sreenshot at the bottom)
