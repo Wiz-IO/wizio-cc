@@ -5,11 +5,11 @@
 * This project is based on Simplelink SDK
 * **[Frameworks](https://github.com/Wiz-IO/framework-wizio-cc)**
 * * Arduino ( in progress... )
-* * Simplelink SDK ( RTOS support TI Drivers )
+* * Simplelink SDK
 * * * baremetal ( **support only driverlib** )
 * * * freertos 
 * * * nortos
-* * * tirtos ( TODO )
+* * * tirtos
 * **Upload & Debug** ( in progress... NOT READY, use SEGGER J-FLASH for now )
 * * J-LINK ( v8 )
 * **ZigBee - NO OPEN SOURCE LIBRARIES**
